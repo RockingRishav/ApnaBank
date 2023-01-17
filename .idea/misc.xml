@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/activity_main.xml" value="0.24635416666666668" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/dropdown_item.xml" value="0.24895833333333334" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/fragment_add_customer.xml" value="0.24074074074074073" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/fragment_customer_list.xml" value="0.16799999999999998" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/fragment_front.xml" value="0.2" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/fragment_reciever_list.xml" value="0.25" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/fragment_send_amount.xml" value="0.25" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/fragment_transaction.xml" value="0.25" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/list_customers.xml" value="0.2" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/list_customers2.xml" value="0.25" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/list_transactions.xml" value="0.1671195652173913" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
