@@ -22,7 +22,7 @@ import com.example.apnabank.databinding.FragmentCustomerListBinding
 class CustomerListFragment : Fragment() {
     private val navigationArgs: CustomerListFragmentArgs by navArgs()
     private val viewModel :  ApnaBankViewModel by activityViewModels {
-        ApnaBankViewModelFactory((activity?.application as ApnaBankApplication).database.customerDao())
+        ApnaBankViewModelFactory((activity?.application as ApnaBankApplication).database1.customerDao(),(activity?.application as ApnaBankApplication).database2.transactionDao())
     }
     private var _binding : FragmentCustomerListBinding? = null
     private val binding get() = _binding!!

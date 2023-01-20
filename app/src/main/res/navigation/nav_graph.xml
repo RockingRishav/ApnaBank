@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_frontFragment_to_customerListFragment2"
             app:destination="@id/customerListFragment" />
+        <action
+            android:id="@+id/action_frontFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
 
     </fragment>
     <fragment
@@ -35,7 +38,8 @@
         android:label="CustomerListFragment" >
         <action
             android:id="@+id/action_customerListFragment_to_sendAmountFragment"
-            app:destination="@id/sendAmountFragment" />
+            app:destination="@id/sendAmountFragment"
+            app:popUpTo="@id/frontFragment" />
         <argument
             android:name="check"
             app:argType="string" />
@@ -67,7 +71,11 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_recieverListFragment_to_transactionFragment"
-            app:destination="@id/transactionFragment" />
+            app:destination="@id/transactionFragment"
+            app:popUpTo="@id/frontFragment" />
+        <argument
+            android:name="senderName"
+            app:argType="string" />
 
 
     </fragment>
@@ -76,14 +84,21 @@
         android:name="com.example.apnabank.TransactionFragment"
         android:label="TransactionFragment" >
         <argument
-            android:name="snederId"
-            app:argType="integer" />
-        <argument
             android:name="receiverId"
             app:argType="integer" />
         <argument
             android:name="amount"
             app:argType="integer" />
+        <argument
+            android:name="senderName"
+            app:argType="string" />
+        <argument
+            android:name="receiverName"
+            app:argType="string" />
+        <argument
+            android:name="doTransaction"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 
 </navigation>

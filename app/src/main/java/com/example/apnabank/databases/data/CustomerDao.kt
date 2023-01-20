@@ -18,6 +18,8 @@ interface CustomerDao {
     fun getCustomers(): Flow<List<Customers>>
     @Query("SELECT * FROM customers WHERE id != :id")
     fun getRecievers(id: Int): Flow<List<Customers>>
+    @Query("SELECT customer_name FROM customers WHERE id = :id")
+    fun getCusName(id: Int): String
 
 
 }

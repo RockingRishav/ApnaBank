@@ -54,6 +54,10 @@ class FrontFragment : Fragment() {
             val action = FrontFragmentDirections.actionFrontFragmentToCustomerListFragment("yes")
             view.findNavController().navigate(action)
         }
+        binding.transactionHistory.setOnClickListener {
+            val action = FrontFragmentDirections.actionFrontFragmentToTransactionFragment(-1,0,"","",null)
+            view.findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

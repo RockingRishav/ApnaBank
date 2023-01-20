@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -22,7 +23,7 @@ class AddCustomerFragment : Fragment() {
     private var _binding : FragmentAddCustomerBinding? = null
     private val binding get() = _binding!!
     private val viewModel :  ApnaBankViewModel by activityViewModels {
-        ApnaBankViewModelFactory((activity?.application as ApnaBankApplication).database.customerDao())
+        ApnaBankViewModelFactory((activity?.application as ApnaBankApplication).database1.customerDao(),(activity?.application as ApnaBankApplication).database2.transactionDao())
     }
     private lateinit var customer : Customers
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,8 +80,14 @@ class AddCustomerFragment : Fragment() {
                 binding.email.text.toString(),
                 binding.genderTv.text.toString()
             )
+            Toast.makeText(this.requireContext(),"Customer Added Successfully",Toast.LENGTH_SHORT)
+                .show()
             val action = AddCustomerFragmentDirections.actionAddCustomerFragmentToFrontFragment()
             findNavController().navigate(action)
+        }
+        else{
+            Toast.makeText(this.requireContext(),"Customer Not Added",Toast.LENGTH_SHORT)
+                .show()
         }
     }
 

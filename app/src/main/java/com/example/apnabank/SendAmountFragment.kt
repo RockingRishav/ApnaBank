@@ -1,6 +1,8 @@
 package com.example.apnabank
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,12 +15,14 @@ import androidx.navigation.fragment.navArgs
 import com.example.apnabank.databases.data.Customers
 import com.example.apnabank.databinding.FragmentCustomerListBinding
 import com.example.apnabank.databinding.FragmentSendAmountBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class SendAmountFragment : Fragment() {
     private val navigationArgs: SendAmountFragmentArgs by navArgs()
     private val viewModel :  ApnaBankViewModel by activityViewModels {
-        ApnaBankViewModelFactory((activity?.application as ApnaBankApplication).database.customerDao())
+        ApnaBankViewModelFactory((activity?.application as ApnaBankApplication).database1.customerDao(),(activity?.application as ApnaBankApplication).database2.transactionDao())
     }
     private var _binding : FragmentSendAmountBinding? = null
     private val binding get() = _binding!!
@@ -55,8 +59,21 @@ class SendAmountFragment : Fragment() {
         binding.paymentButton.setOnClickListener {
             if(payable()){
                 viewModel.makepayment(selectedCustomer,binding.amountToSend.text.toString().toInt())
-                val action = SendAmountFragmentDirections.actionSendAmountFragmentToRecieverListFragment(navigationArgs.customerId,binding.amountToSend.text.toString().toInt())
+                val action = SendAmountFragmentDirections.actionSendAmountFragmentToRecieverListFragment(navigationArgs.customerId,binding.amountToSend.text.toString().toInt(),selectedCustomer.customerName)
                 findNavController().navigate(action)
+            }
+            else{
+                val v = Calendar.getInstance()
+                val tdate = v.time
+                val sdf = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
+                val date  = sdf.format(tdate)
+                viewModel.addNewTransaction(selectedCustomer.customerName,"",binding.amountToSend.text.toString().toInt(),date,"Failed")
+                Toast.makeText(this.requireContext(),"Transaction Unsuccessful",Toast.LENGTH_SHORT)
+                    .show()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    activity?.onBackPressed()
+                }, 500)
+
             }
         }
     }
@@ -73,6 +90,12 @@ class SendAmountFragment : Fragment() {
             accountNo.text = customer.accountNumber.toString()
             ifscCode.text = customer.ifscCode
             balance.text = customer.amount.toString()
+            if(customer.gender=="Male"){
+                customerImage.setImageResource(R.drawable.man)
+            }
+            else{
+                customerImage.setImageResource(R.drawable.woman)
+            }
         }
     }
     private fun payable(): Boolean{

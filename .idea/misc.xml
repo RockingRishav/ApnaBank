@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/drawable/arrow.xml" value="0.2185" />
         <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/activity_main.xml" value="0.24635416666666668" />
         <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/dropdown_item.xml" value="0.24895833333333334" />
@@ -14,7 +15,7 @@
         <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/fragment_transaction.xml" value="0.25" />
         <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/list_customers.xml" value="0.2" />
         <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/list_customers2.xml" value="0.25" />
-        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/list_transactions.xml" value="0.1671195652173913" />
+        <entry key="..\:/apps/ApnaBank/app/src/main/res/layout/list_transactions.xml" value="0.1" />
       </map>
     </option>
   </component>
